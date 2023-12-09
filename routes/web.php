@@ -18,4 +18,5 @@ Route::get('/posts/create', [PostController::class, 'create']);
 Route::get('/posts/{post}',[PostController::class,'show']);
 Route::GET('/posts/{post}/edit',[PostController::class,'edit']);
 Route::PUT('/posts/{post}',[PostController::class,'update']);
+Route::DELETE('/posts/{post}',[PostController::class,'delete']);
 Route::post('/posts', [PostController::class, 'store']);
