@@ -15,6 +15,7 @@
             <h3>本文</h3>
             <p>{{$post->title}}</p3>
         </div>
+        <div class="edit"><a href="/posts/{{ $post->id }}/edit">edit</a></div>
         <div class='footer'>
             <a href = "/">戻る</a>
         </div>
