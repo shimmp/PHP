@@ -5,13 +5,28 @@
         <title>Blog</title>
         <!-- Fonts -->
         <link href="https://fonts.googleapis.com/css?family=Nunito:200,600" rel="stylesheet">
+        <x-app-layout>
+    <x-slot name="header">
+        header
+        </x-slot>
     </head>
     <body>
+         <div>
+        @foreach($questions as $question)
+            <div>
+                <a href="https://teratail.com/questions/{{ $question['id'] }}">
+                    {{ $question['title'] }}
+                </a>
+            </div>
+        @endforeach
+    </div>
         <h1>Blog Name</h1>
+        {{ Auth::user() }}
+         
         <div class='posts'>
             @foreach ($posts as $post)
                 <div class='post'>
-                    <h2 class='title'>{{ $post->title }}</h2>
+                    <a href = "/posts/{{$post->id}}">{{$post->title }}</a>
                     <p class='body'>{{ $post->body }}</p>
                    <a href="/categories/{{ $post->category->id }}">{{ $post->category->name }}</a>
                     <form action="/posts/{{ $post->id }}" id="form_{{ $post->id }}" method="post">
@@ -24,9 +39,10 @@
                 </div>
             @endforeach
         </div>
+        {{ Auth::user()->name }}
         <h2 class ='title'>
             <a href='/posts/create'>create</a>
-            <a href = "/posts/{{$post->id}}">{{$post->title }}</a>
+            
             
             </h2>
         <div class='paginate'>
@@ -40,6 +56,6 @@
         }
     }
 </script>
-
     </body>
+    </x-app-layout>
 </html>

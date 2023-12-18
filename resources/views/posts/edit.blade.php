@@ -3,7 +3,12 @@
     <head>
         <meta charset="utf-8">
         <title>Blog</title>
-    </head>
+    
+    <x-app-layout>
+    <x-slot name="header">
+        header
+        </x-slot>
+        </head>
    <!-- body内だけを表示しています。 -->
 <body>
     <h1 class="title">編集画面</h1>
@@ -23,5 +28,6 @@
         </form>
     </div>
 </body>
+ </x-app-layout>
 
 </html>
