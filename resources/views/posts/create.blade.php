@@ -5,6 +5,10 @@
         <title>Blog</title>
     </head>
     <body>
+        <x-app-layout>
+    <x-slot name="header">
+        header
+        </x-slot>
         <h1>Blog Name</h1>
         <form action="/posts" method="POST">
             @csrf
@@ -14,6 +18,10 @@
                 <p class="title__error" style="color:red">{{ $errors->first('post.title') }}</p>
             </div>
             <div class="body">
+                <x-app-layout>
+                <x-slot name="header">
+                    header
+                    </x-slot>
                 <h2>Body</h2>
                 <textarea name="post[body]" placeholder="今日も1日お疲れさまでした。">{{ old('post.body') }}</textarea>
                 <p class="body__error" style="color:red">{{ $errors->first('post.body') }}</p>
@@ -30,5 +38,6 @@
         </div>
 
         <div class="back">[<a href="/">back</a>]</div>
+        </x-app-layout>
     </body>
 </html>
